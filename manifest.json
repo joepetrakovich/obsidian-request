@@ -1,7 +1,7 @@
 {
 	"id": "request",
 	"name": "Request",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Make web requests via codeblocks and use the result in your notes.",
 	"author": "Joe Petrakovich",
