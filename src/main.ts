@@ -9,7 +9,7 @@ const Request = z.object({
 	contentType: z.string().optional(),
 	body: z.string().optional(),
 	headers: z.record(z.string(), z.string()).optional(),
-	path: z.string().default("$")
+	path: z.string().optional()
 });
 
 export default class RequestPlugin extends Plugin {
@@ -35,16 +35,20 @@ export default class RequestPlugin extends Plugin {
 				const response = await requestUrl(params);
 
 				//TODO: handle response types other than json.
-
 				console.log("response: ", JSON.stringify(response));
+
+				//TODO: consider jsonpaths output and how to use that within handlebars.
+				// JSONPath has wrap: true which wraps in array, they could target multiple.
+				// perhaps not wrapping is best, then can have default $ for path..
+				// test with multiples, common replies. may be good to have some unit tests.
 				const data = path ? JSONPath({ path, json: response.json }) : response.json;
-				let output = data;
+				let output = JSON.stringify(data);
 				if (template) {
 					const ht = Handlebars.compile(template);
 					output = ht(data);
 				}
 
-				el.append(output);
+				el.innerHTML = output;
 			}
 			catch (error) {
 				console.error(error);
