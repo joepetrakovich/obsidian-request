@@ -6,7 +6,12 @@ const Config = z.object({
 	method: z.enum(["GET", "POST", "PUT", "DELETE"]).default("GET"),
 	contentType: z.string().optional(),
 	body: z.string().optional(),
-	headers: z.record(z.string(), z.string()).optional(),
+	headers: z.array(
+		z.record(z.string(), z.string())
+		.refine(item => Object.keys(item).length === 1,
+			{ message: "Each header item must have exactly one key" }))
+		.optional()
+		.transform(headers => headers ? Object.assign({}, ...headers) : undefined),
 	path: z.string().optional()
 });
 export type Config = z.infer<typeof Config>;
@@ -36,7 +41,7 @@ export function parse(source: string): ParseResult {
 		console.error(error);
 		result = { success: false, error, message: "Invalid configuration format." };
 		if (error instanceof z.ZodError) {
-			result.message = JSON.stringify(error.issues);
+			result.message = z.prettifyError(error);
 		}
 	}
 
