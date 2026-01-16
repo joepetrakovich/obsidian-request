@@ -1,7 +1,8 @@
-import { Component, MarkdownRenderChild, MarkdownRenderer, Plugin, requestUrl } from 'obsidian';
+import { Component, MarkdownRenderChild, MarkdownRenderer, Plugin, requestUrl, RequestUrlResponse, sanitizeHTMLToDom } from 'obsidian';
 import { JSONPath } from 'jsonpath-plus';
 import * as Handlebars from "handlebars";
 import { parse } from 'config';
+import { JsonValue } from 'types';
 
 export default class RequestPlugin extends Plugin {
 
@@ -18,16 +19,17 @@ export default class RequestPlugin extends Plugin {
 
 			try {
 				const { config: { path, ...params }, template } = parsed.data;
-				const response = await requestUrl(params);
-				const data = path ? JSONPath({ path, json: response.json, wrap: false }) : response.json;
+				const response: RequestUrlResponse = await requestUrl(params);
+				const json = response.json as JsonValue;
+				const data: unknown = path ? JSONPath({ path, json, wrap: false }) : json;
 				let output = JSON.stringify(data);
 
 				if (template) {
 					const ht = Handlebars.compile(template);
 					output = ht(data);
 				}
-
-				el.innerHTML = output;
+					
+				el.append(sanitizeHTMLToDom(output));
 			}
 			catch (error) {
 				console.error(error);

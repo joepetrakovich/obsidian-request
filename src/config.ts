@@ -11,7 +11,7 @@ const Config = z.object({
 		.refine(item => Object.keys(item).length === 1,
 			{ message: "Each header item must have exactly one key" }))
 		.optional()
-		.transform(headers => headers ? Object.assign({}, ...headers) : undefined),
+		.transform(headers => headers ? Object.assign({}, ...headers) as Record<string, string> : undefined),
 	path: z.string().optional()
 });
 export type Config = z.infer<typeof Config>;
@@ -23,7 +23,7 @@ interface ParseSuccess {
 
 interface ParseError {
 	success: false,
-	error: z.ZodError | unknown
+	error: unknown
 	message: string
 }
 
@@ -34,7 +34,7 @@ export function parse(source: string): ParseResult {
 
 	let result: ParseResult;
 	try {
-		const obj = parseYaml(yaml ?? '');
+		const obj: unknown = parseYaml(yaml ?? '');
 		const config = Config.parse(obj);
 		result = { success: true, data: { config, template: template?.trim() } };
 	} catch (error) {

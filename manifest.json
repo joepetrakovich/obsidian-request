@@ -2,7 +2,7 @@
 	"id": "request",
 	"name": "Request",
 	"version": "1.0.1",
-	"minAppVersion": "0.15.0",
+	"minAppVersion": "1.11.4",
 	"description": "Make web requests via codeblocks and use the result in your notes.",
 	"author": "Joe Petrakovich",
 	"authorUrl": "https://joe.ptrkv.ch",
