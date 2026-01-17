@@ -1,29 +1,20 @@
 import { parseYaml } from 'obsidian';
 import * as z from "zod";
 
-const BaseRequest = z.object({
+const Config = z.object({
 	url: z.url({ protocol: /^https?$/ }),
+	method: z.literal(["GET", "POST", "PUT", "DELETE"]).default("GET"),
 	headers: z.array(z.record(z.string(), z.string()))
 		.optional()
 		.transform(headers => headers ? Object.assign({}, ...headers) as Record<string, string> : undefined),
-	path: z.string().optional()
+	body: z.json().transform(val => {
+		if (typeof val === 'string') return val;
+		return JSON.stringify(val);
+	}).optional(),
+	path: z.string().optional(),
+	get then() { return Config.optional() }
 });
 
-//NOTE: bsidian's RequestUrl() fails on mobile if a body is included with GET
-// so we omit it here.
-const Config = z.discriminatedUnion("method", [
-	BaseRequest.extend({ method: z.literal("GET").optional() }),
-	BaseRequest.extend({
-		method: z.literal(["POST", "PUT", "DELETE"]),
-		body: z.union([z.string(), z.record(z.any(), z.any()), z.array(z.any())
-		]).transform((val) => {
-			if (typeof val === 'string') {
-				return val;
-			}
-			return JSON.stringify(val);
-		}).optional(),
-	})
-]);
 export type Config = z.infer<typeof Config>;
 
 interface ParseSuccess {
