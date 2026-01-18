@@ -1,5 +1,3 @@
-# Obsidian Request
-
 An Obsidian plugin for adding web requests to your notes.  JSONPath for targeting, Handlebars.js for
 templating the response.  Allows request chaining.
 
