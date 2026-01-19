@@ -5,7 +5,7 @@ import { type Config, parse } from 'config';
 import { JsonValue } from 'types';
 
 export default class RequestPlugin extends Plugin {
-	async onload() {
+	onload() {
 		this.registerMarkdownCodeBlockProcessor('request', async (source, el, ctx) => {
 			const mdRenderChild = new MarkdownRenderChild(el);
 			ctx.addChild(mdRenderChild);
