@@ -20,7 +20,7 @@ layout: home
 <span class="code-fence">```</span>
 </code></pre>
 
-<img class="rei" alt="CTB 1: The Medulla Nebula" src="/assets/images/ctb1.jpg">
+<img class="rei" alt="CTB 1: The Medulla Nebula" src="{{ '/assets/images/ctb1.jpg' | relative_url }}">
 <details>
   <summary>CTB 1: The Medulla Nebula</summary>
 What powers this unusual nebula? CTB 1 is the expanding gas shell that was left when a massive star toward the constellation of Cassiopeia exploded about 10,000 years ago.
