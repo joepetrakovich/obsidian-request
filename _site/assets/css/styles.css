@@ -1,0 +1,50 @@
+pre code {
+  font-family: "Fira Code", "Consolas", "Monaco", monospace;
+  line-height: 1.5;
+  color: #d4d4d4;
+}
+
+.code-fence {
+  color: #808080;
+}
+
+.code-property {
+  color: #9cdcfe;
+}
+
+.code-punctuation {
+  color: #d4d4d4;
+}
+
+.code-url {
+  color: #ce9178;
+}
+
+.code-separator {
+  color: #808080;
+}
+
+.code-tag {
+  color: #569cd6;
+}
+
+.code-attr {
+  color: #9cdcfe;
+}
+
+.code-string {
+  color: #ce9178;
+}
+
+.code-template {
+  color: #dcdcaa;
+}
+
+img.rei {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 21/9;
+  border-radius: 12px !important;
+}
+
+/*# sourceMappingURL=styles.css.map */
