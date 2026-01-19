@@ -1,0 +1,28 @@
+title: Obsidian Request
+description: >- # thispvumeans to ignore newlines until "baseurl:"
+  Add http requests to your Obsidian notes.
+baseurl: "/obsidian-request" # the subpath of your site, e.g. /blog
+url: "https://joepetrakovich.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# Build settings
+author:
+  name: Joe Petrakovich
+  x: joe_ptrkv_ch
+
+theme: minima
+minima:
+  skin: dark
+  social_links:
+  - title: Github Repository
+    icon: github
+    url: "https://github.com/joepetrakovich/obsidian-request"
+  - title: joe_ptrkv_ch
+    icon: x-twitter
+    url: "https://x.com/joe_ptrkv_ch"
+  hide_site_feed_link: true
+
+sass:
+  quiet_deps: true
+  silence_deprecations: [import]
+
+plugins:
+  - jekyll-feed

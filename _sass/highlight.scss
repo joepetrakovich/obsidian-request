@@ -1,0 +1,49 @@
+// Code block container
+pre {
+  code {
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    // font-size: 0.9em;
+    line-height: 1.5;
+    color: #d4d4d4;
+  }
+}
+
+// Code fence markers (```request, ```)
+.code-fence {
+  color: #808080;
+}
+
+// YAML highlighting
+.code-property {
+  color: #9cdcfe; // light blue - YAML keys
+}
+
+.code-punctuation {
+  color: #d4d4d4; // default text color
+}
+
+.code-url {
+  color: #ce9178; // orange/brown - string values
+}
+
+.code-separator {
+  color: #808080; // gray - the --- separator
+}
+
+// HTML highlighting
+.code-tag {
+  color: #569cd6; // blue - HTML tags
+}
+
+.code-attr {
+  color: #9cdcfe; // light blue - HTML attributes
+}
+
+.code-string {
+  color: #ce9178; // orange/brown - quoted strings
+}
+
+// Handlebars template highlighting
+.code-template {
+  color: #dcdcaa; // yellow - template variables {{}}
+}
