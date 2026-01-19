@@ -20,6 +20,10 @@ pre code {
   color: #ce9178;
 }
 
+.code-value {
+  color: #ce9178;
+}
+
 .code-separator {
   color: #808080;
 }
@@ -45,6 +49,10 @@ img.rei {
   object-fit: cover;
   aspect-ratio: 21/9;
   border-radius: 12px !important;
+}
+
+.site-header {
+  border-top: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
