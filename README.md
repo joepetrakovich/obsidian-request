@@ -6,4 +6,4 @@ An Obsidian plugin for adding web requests to your notes.
 - JSONPath for targeting the value in the response.
 - Handlebars for templating the result.
 
-See the full documentation [here](joepetrakovich.github.io/obsidian-request/)
+See the full documentation [here](https://joepetrakovich.github.io/obsidian-request/)
