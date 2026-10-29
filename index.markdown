@@ -10,12 +10,13 @@ layout: home
 <div class="request-example">
 
 <pre><code><span class="code-fence">```request</span>
-<span class="code-property">url</span><span class="code-punctuation">:</span> <span class="code-url">https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY</span>
+<span class="code-property">url</span><span class="code-punctuation">:</span> <span class="code-url">https://science.nasa.gov/wp-json/wp/v2/apod-basic</span>
+<span class="code-property">path</span><span class="code-punctuation">:</span> <span class="code-value">$[0]</span>
 <span class="code-separator">---</span>
-<span class="code-tag">&lt;img</span> <span class="code-attr">src</span><span class="code-punctuation">=</span><span class="code-string">"</span><span class="code-template">&#123;&#123;url&#125;&#125;</span><span class="code-string">"</span> <span class="code-attr">alt</span><span class="code-punctuation">=</span><span class="code-string">"</span><span class="code-template">&#123;&#123;title&#125;&#125;</span><span class="code-string">"</span> <span class="code-tag">/&gt;</span>
+<span class="code-tag">&lt;img</span> <span class="code-attr">src</span><span class="code-punctuation">=</span><span class="code-string">"</span><span class="code-template">&#123;&#123;hdurl&#125;&#125;</span><span class="code-string">"</span> <span class="code-attr">alt</span><span class="code-punctuation">=</span><span class="code-string">"</span><span class="code-template">&#123;&#123;title&#125;&#125;</span><span class="code-string">"</span> <span class="code-tag">/&gt;</span>
 <span class="code-tag">&lt;details&gt;</span>
   <span class="code-tag">&lt;summary&gt;</span><span class="code-template">&#123;&#123;title&#125;&#125;</span><span class="code-tag">&lt;/summary&gt;</span>
-  <span class="code-template">&#123;&#123;explanation&#125;&#125;</span>
+  <span class="code-template">&#123;&#123;&#123;explanation&#125;&#125;&#125;</span>
 <span class="code-tag">&lt;/details&gt;</span>
 <span class="code-fence">```</span>
 </code></pre>
