@@ -13,12 +13,13 @@ See the full documentation [here](https://joepetrakovich.github.io/obsidian-requ
 
 ````
 ```request
-url: https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
+url: https://science.nasa.gov/wp-json/wp/v2/apod-basic
+path: $[0]
 ---
-<img src="{{url}}" alt="{{title}}" />
+<img src="{{hdurl}}" alt="{{title}}" />
 <details>
-  <summary>{{title}}</summary>
-  {{explanation}}
+	<summary>{{title}}</summary>
+	{{{explanation}}}
 </details>
 ```
 ````
